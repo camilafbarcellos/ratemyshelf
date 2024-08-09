@@ -12,7 +12,7 @@ const NotFound = () => {
                     <Grid item xs={12} sm={12} md={6}>
                         <Card sx={{ minWidth: 50 }}>
                             <CardContent>                                
-                                <Typography variant="h5" component="div">
+                                <Typography variant="h4" component="div">
                                     404
                                 </Typography>
                                 <Typography variant="h5" component="div">
