@@ -14,7 +14,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import { AccountCircle } from '@mui/icons-material';
-import { logout, auth, signInWithGoogle } from '../firebaseConfig';
+import { logout, auth, signInWithGoogle, signInWithGithub } from '../firebaseConfig';
 import { useAuthState } from "react-firebase-hooks/auth";
 
 
@@ -52,9 +52,18 @@ function MenuPrincipal() {
         setAnchorElNav(null);
     };
 
-    {/* Funções que devem ser modificadas */ }
+    {/* Funções de login com Firebase */ }
     const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
+
+    const handleCloseUserGoogleMenu = () => {
         signInWithGoogle();
+        setAnchorElUser(null);
+    };
+
+    const handleCloseUserGithubMenu = () => {
+        signInWithGithub();
         setAnchorElUser(null);
     };
 
@@ -70,7 +79,7 @@ function MenuPrincipal() {
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         {/* Inicio tela grande - Logo Home */}
-                        <Avatar variant='rounded' sx={{ width: 32, height: 32, display: { xs: 'none', md: 'flex' }, mr: 1 }}
+                        <Avatar variant='rounded' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
                             alt="Logo Rate My Shelf" src={LogoRMS} component={NavLink} to="/" />
                         <Typography
                             variant="h6"
@@ -160,8 +169,7 @@ function MenuPrincipal() {
                         {/* Fim itens menu tela pequena */}
 
                         {/* Inicio tela pequena - Logo Home */}
-                        <Avatar variant='rounded' sx={{ width: 32, height: 32, display: { xs: 'none', md: 'flex' }, mr: 1 }}
-                            alt="Logo Rate My Shelf" src={LogoRMS} component={NavLink} to="/" />
+                        <Avatar variant='rounded' sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} alt="Logo Rate My Shelf" src={LogoRMS} />
                         <Typography
                             variant="h5"
                             noWrap
@@ -257,13 +265,20 @@ function MenuPrincipal() {
 
                                 {user &&
                                     <MenuItem onClick={handleLogOut}>
-                                        <Typography textAlign="center">Efetuar Logout</Typography>
+                                        <Typography textAlign="center">Logout</Typography>
                                     </MenuItem>
                                 }
 
                                 {!user &&
-                                    <MenuItem onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center">Efetuar Login</Typography>
+                                    <MenuItem onClick={handleCloseUserGoogleMenu}>
+                                        <Typography textAlign="center">Login com Google</Typography>
+                                    </MenuItem>
+
+                                }
+
+                                {!user &&
+                                    <MenuItem onClick={handleCloseUserGithubMenu}>
+                                        <Typography textAlign="center">Login com GiHub</Typography>
                                     </MenuItem>
                                 }
                             </Menu>
