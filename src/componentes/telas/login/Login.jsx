@@ -18,7 +18,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const [alerta, setAlerta] = useState({ status: "", message: "" });
     const [autenticado, setAutenticado] = useState(false);
-    const [carregando, setCarrengando] = useState(false);
+    const [carregando, setCarregando] = useState(false);
 
     let navigate = useNavigate();
 
@@ -27,11 +27,11 @@ function Login() {
         e.preventDefault();
 
         try {
-            setCarrengando(true);        
+            setCarregando(true);        
         } catch (err) {            
             setAlerta({ status: "error", message: err.message })
         } finally {
-            setCarrengando(false);
+            setCarregando(false);
         }
     };
 
