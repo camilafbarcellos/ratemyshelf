@@ -51,8 +51,6 @@ function Form() {
                 name="avaliacao"
                 value={objeto.avaliacao}
                 onChange={handleChange}
-                readonly={false}
-                requerido={true}
                 msginvalido="Informe a sua avaliação em estrelas"
                 msgvalido="Avaliação OK"
             />

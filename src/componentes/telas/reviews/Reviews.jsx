@@ -57,6 +57,12 @@ function Reviews() {
 
     const acaoCadastrar = async e => {
         e.preventDefault();
+        if(objeto.avaliacao <= 0) {
+            setAlerta({
+                status: "error", message: "Erro ao criar o review: a avaliação não foi informada!"
+            });
+            return;
+        }
         if (editar) {
             try {
                 await updateReviewFirebase(objeto);
