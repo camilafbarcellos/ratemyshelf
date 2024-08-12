@@ -169,9 +169,10 @@ function MenuPrincipal() {
                         {/* Fim itens menu tela pequena */}
 
                         {/* Inicio tela pequena - Logo Home */}
-                        <Avatar variant='rounded' sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} alt="Logo Rate My Shelf" src={LogoRMS} />
+                        <Avatar variant='rounded' sx={{ height: 35, width: 35, display: { xs: 'flex', md: 'none' }, mr: 1 }}
+                            alt="Logo Rate My Shelf" src={LogoRMS} component={NavLink} to="/" />
                         <Typography
-                            variant="h5"
+                            variant="h6"
                             noWrap
                             component={NavLink} to="/"
                             sx={{
@@ -180,8 +181,7 @@ function MenuPrincipal() {
                                 flexGrow: 1,
                                 fontFamily: 'monospace',
                                 fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
+                                color: '#F9B549',
                                 textDecoration: 'none',
                             }}
                         >
