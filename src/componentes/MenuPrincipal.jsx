@@ -13,6 +13,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import GoogleIcon from '@mui/icons-material/Google';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { AccountCircle } from '@mui/icons-material';
 import { logout, auth, signInWithGoogle, signInWithGithub } from '../firebaseConfig';
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -265,20 +268,23 @@ function MenuPrincipal() {
 
                                 {user &&
                                     <MenuItem onClick={handleLogOut}>
-                                        <Typography textAlign="center">Logout</Typography>
+                                        <LogoutIcon/>
+                                        <Typography textAlign="center">&nbsp; Logout</Typography>
                                     </MenuItem>
                                 }
 
                                 {!user &&
                                     <MenuItem onClick={handleCloseUserGoogleMenu}>
-                                        <Typography textAlign="center">Login com Google</Typography>
+                                        <GoogleIcon/>
+                                        <Typography textAlign="center">&nbsp; Login com Google</Typography>
                                     </MenuItem>
 
                                 }
 
                                 {!user &&
                                     <MenuItem onClick={handleCloseUserGithubMenu}>
-                                        <Typography textAlign="center">Login com GiHub</Typography>
+                                        <GitHubIcon/>
+                                        <Typography textAlign="center">&nbsp; Login com GiHub</Typography>
                                     </MenuItem>
                                 }
                             </Menu>
